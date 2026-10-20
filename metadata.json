@@ -1,0 +1,8 @@
+{
+  "name": "Aziz Electronics - Electric Bike Mechanic",
+  "description": "Professional electric bike repair and technical services by Muhammad Ismail with 6+ years experience in Saddar Bazaar, Dera Ismail Khan, Pakistan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

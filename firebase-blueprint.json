@@ -1,0 +1,128 @@
+{
+  "entities": {
+    "repairRequest": {
+      "title": "Repair Request",
+      "description": "Electric bike repair booking or diagnostic request submitted by a customer",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the repair request"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the customer who created the booking"
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Full name of the bike owner",
+          "maxLength": 100
+        },
+        "customerPhone": {
+          "type": "string",
+          "description": "Contact phone number or WhatsApp number",
+          "maxLength": 25
+        },
+        "bikeModel": {
+          "type": "string",
+          "description": "Model or brand of the electric bike",
+          "maxLength": 80
+        },
+        "serviceType": {
+          "type": "string",
+          "description": "Category of repair requested",
+          "enum": [
+            "Electric Bike Repair",
+            "Electrical System Diagnostics",
+            "Motor Repair & Maintenance",
+            "Battery & Charging Issues",
+            "Wiring & Electrical Components",
+            "General Maintenance"
+          ]
+        },
+        "issueDescription": {
+          "type": "string",
+          "description": "Detailed explanation of symptoms or issues",
+          "maxLength": 1000
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status of the repair work",
+          "enum": ["pending", "in_progress", "completed", "cancelled"]
+        },
+        "preferredDate": {
+          "type": "string",
+          "description": "Preferred drop-off date"
+        },
+        "adminNotes": {
+          "type": "string",
+          "description": "Mechanic diagnostic or completion notes",
+          "maxLength": 1000
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the booking was initiated"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the booking was last updated"
+        }
+      },
+      "required": ["userId", "customerName", "customerPhone", "bikeModel", "serviceType", "issueDescription", "status", "createdAt"]
+    },
+    "serviceInquiry": {
+      "title": "Service Inquiry",
+      "description": "General inquiry or quote request submitted by a visitor or authenticated user",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the inquiry"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of author if authenticated"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of contact person",
+          "maxLength": 100
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number or WhatsApp number",
+          "maxLength": 25
+        },
+        "serviceCategory": {
+          "type": "string",
+          "description": "Service domain inquired about",
+          "maxLength": 80
+        },
+        "message": {
+          "type": "string",
+          "description": "Message content",
+          "maxLength": 1000
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when inquiry was recorded"
+        }
+      },
+      "required": ["name", "phone", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/repairRequests/{requestId}": {
+      "schema": {
+        "$ref": "repairRequest"
+      },
+      "description": "Collection of e-bike repair service bookings and tracking documents"
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": {
+        "$ref": "serviceInquiry"
+      },
+      "description": "Customer contact inquiries and quote messages"
+    }
+  }
+}
