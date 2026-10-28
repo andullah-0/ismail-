@@ -1,0 +1,37 @@
+# Muhammad Ismail - Electric Bike Mechanic at Aziz Electronics
+
+> Professional electric motorcycle, e-bike, and hybrid motorcycle mechanic located at Aziz Electronics, Saddar Bazaar, Saddar Market, Dera Ismail Khan (D.I. Khan), Khyber Pakhtunkhwa, Pakistan. 6+ years of hands-on technical expertise in BLDC hub motor rewinding, lithium-ion battery diagnostics & cell balancing, intelligent sine-wave controllers, complete wiring restoration, and fuel-to-electric dual-drive motorcycle conversions.
+
+## Business & Contact Information
+
+- **Primary Specialist**: Muhammad Ismail (Professional Electric Bike Mechanic)
+- **Workshop Name**: Aziz Electronics
+- **Shop Address**: Saddar Bazaar, Saddar Market, Aziz Electronics, Dera Ismail Khan, Khyber Pakhtunkhwa, Pakistan
+- **Geographic Coordinates**: Latitude 31.8314° N, Longitude 70.9019° E
+- **Primary Phone**: +92 348 3440284 / 03483440284
+- **WhatsApp**: [Chat directly on WhatsApp](https://wa.me/923483440284?text=Hello%20Muhammad%20Ismail%2C%20I%20need%20electric%20bike%20repair%20services.)
+- **Workshop Hours**: Monday through Saturday, 9:00 AM to 8:00 PM PKT. Sunday available for scheduled emergency repairs.
+- **Service Territory**: Dera Ismail Khan (D.I. Khan), Tank, Bannu, Bhakkar, and surrounding Khyber Pakhtunkhwa & Punjab border regions.
+
+## Key Services Offered
+
+- **BLDC Hub Motor & Mid-Drive Motor Repair**: Complete stator rewinding with high-temperature copper, hall sensor replacement (3144/41F), neodymium rotor magnet inspection and realignment, water-ingress drying, and high-speed ceramic/steel bearing replacement.
+- **Lithium-Ion & Lead-Acid Battery Diagnostics**: Digital cell capacity analysis, precision resistance testing, smart BMS (Battery Management System) replacement, nickel strip spot welding, balancing of 48V / 60V / 72V packs, and range restoration.
+- **Intelligent Motor Controller Troubleshooting**: Diagnosing MOSFET short circuits, hall sensor signal errors, throttle input calibration, regenerative electronic braking integration, and reverse assist wiring.
+- **Hybrid Motorcycle Conversion (Petrol + Electric Dual-Drive)**: Custom fabrication and mounting that equips standard 70cc/100cc/125cc motorcycles with an electric hub motor and battery system alongside the original combustion engine, allowing zero-emission electric commuting in town and petrol switching for long journeys.
+- **High-Current Wiring & Electrical Security**: Custom heavy-gauge silicone wire harnesses, anti-short automotive relays, digital LED instrument clusters, keyed ignition switches, and waterproof quick-disconnect power couplers.
+- **Mechanical Tuning & Brake Optimization**: Hydraulic disc brake bleeding, e-brake motor shut-off switch adjustment, front suspension dampening, and reinforced frame mounting.
+
+## Website Pages & Documentation
+
+- [Home](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/): Main homepage featuring workshop highlights, live video of hybrid motorcycle road test and shop benchwork, and direct call/WhatsApp buttons.
+- [Services](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/services): Comprehensive breakdown of all repair, diagnostic, conversion, and overhaul services with transparent turnarounds.
+- [About](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/about): Muhammad Ismail's technical journey, 6+ years of field experience, diagnostic philosophies, and equipment at Aziz Electronics.
+- [Frequently Asked Questions](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/faq): Transparent answers on diagnostic turnaround time (same-day to 48 hours), spare parts sourcing in D.I. Khan, pricing estimates, and battery health warranties.
+- [Workshop Experience & Showcase](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/experience): Portfolio of completed e-bike repairs, motor rewinds, customer feedback, and workshop bench equipment.
+- [Workshop Location & Map](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/location): Landmark directions to Saddar Market in Dera Ismail Khan, Google Maps integration, and visiting advice.
+- [Contact & Appointments](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/contact): Quick click-to-call and WhatsApp links for immediate troubleshooting inquiries.
+
+## Optional Extended Knowledge Base
+
+- [Full LLMs Knowledge Base](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/llms-full.txt): Comprehensive technical guide covering common electric bike error codes, troubleshooting procedures, battery safety guidelines, and conversion specifications.

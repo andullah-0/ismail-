@@ -118,7 +118,40 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar & Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 Aziz Electronics. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <p>© 2026 Aziz Electronics. All rights reserved.</p>
+            <div className="flex items-center gap-3 text-slate-400">
+              <a
+                href="/sitemap.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-400 transition-colors"
+                title="XML Sitemap"
+              >
+                Sitemap
+              </a>
+              <span>•</span>
+              <a
+                href="/robots.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-400 transition-colors"
+                title="Robots.txt"
+              >
+                Robots.txt
+              </a>
+              <span>•</span>
+              <a
+                href="/llms.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-400 transition-colors font-mono text-[11px]"
+                title="LLM & AI Documentation"
+              >
+                llms.txt
+              </a>
+            </div>
+          </div>
 
           <div className="flex items-center gap-4">
             <span>D.I. Khan, Pakistan</span>

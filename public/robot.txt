@@ -1,0 +1,18 @@
+# Robots.txt for Aziz Electronics - Muhammad Ismail Electric Bike Mechanic
+# Dera Ismail Khan (D.I. Khan), Khyber Pakhtunkhwa, Pakistan
+# Website: https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app
+
+User-agent: *
+Allow: /
+
+# Disallow build or node artifacts if any
+Disallow: /node_modules/
+Disallow: /dist/
+
+# Search Engine Sitemap Index
+Sitemap: https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/sitemap.xml
+
+# LLM & AI Agents documentation and machine context
+# See https://llmstxt.org/ for details
+# LLMs: https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/llms.txt
+# Full documentation: https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/llms-full.txt

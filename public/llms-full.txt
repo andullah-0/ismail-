@@ -1,0 +1,63 @@
+# Muhammad Ismail - Electric Bike Mechanic at Aziz Electronics (Full Knowledge Base)
+
+> Comprehensive technical documentation, repair protocols, diagnostic trees, and operational details for Aziz Electronics, headed by Muhammad Ismail in Saddar Bazaar, Dera Ismail Khan, Pakistan.
+
+---
+
+## 1. Business Profile & Contact
+
+- **Specialist**: Muhammad Ismail
+- **Shop / Business**: Aziz Electronics
+- **Location**: Saddar Bazaar, Saddar Market, Aziz Electronics, Dera Ismail Khan (D.I. Khan), Khyber Pakhtunkhwa, Pakistan
+- **Geographic Coordinates**: 31.8314° N, 70.9019° E
+- **Phone Number**: +92 348 3440284 / 03483440284
+- **WhatsApp**: https://wa.me/923483440284
+- **Working Hours**: Monday – Saturday: 9:00 AM – 8:00 PM (PKT). Sunday: Available for urgent scheduled diagnostics.
+- **Languages Spoken**: Urdu, Saraiki, Pashto, English.
+
+---
+
+## 2. Technical Specializations & Diagnostic Workflows
+
+### A. Brushless DC (BLDC) Motor Maintenance
+- **Hall Sensor Faults**: Diagnosis using digital multimeters and oscilloscope signal tracing. Replacing defective 41F / 3144 bipolar hall effect switches with heat-shrink insulated copper leads.
+- **Phase Wire Overheating**: Resolving phase wire melting, replacing with high-temperature Teflon/silicone coated AWG cables and gold-plated spade/bullet connectors.
+- **Rotor & Bearing Care**: High-tolerance bearing pullers used to replace 6000-series deep groove bearings; neodymium magnet inspection and re-gluing using two-part industrial epoxy.
+- **Motor Rewinding**: Complete manual rewinding using grade-H thermal enamelled copper wire for 48V, 60V, and 72V configurations (500W to 3000W).
+
+### B. Lithium-Ion & Battery Systems
+- **Cell Capacity & Internal Resistance (IR) Testing**: High-precision YR1035+ Kelvin four-wire testing of individual 18650, 21700, and LiFePO4 cells.
+- **Battery Management System (BMS) Calibration**: Replacement of failed 13S, 16S, 20S BMS boards with high-discharge rated smart BMS units featuring thermal cutoff sensors.
+- **Pack Spot Welding**: Clean micro-pulse spot welding with pure nickel strips (0.15mm – 0.2mm) to prevent thermal degradation of cell terminals.
+- **Deep-Discharge Recovery & Balancing**: Active cell equalization to restore packs exhibiting premature low-voltage cutoffs.
+
+### C. Intelligent Controllers & Throttle Circuits
+- **MOSFET Testing & Replacement**: Testing N-channel high-power MOSFETs (e.g., IRFB4110 / HY4008) for gate-to-source and drain-to-source shorts caused by voltage spikes or stalled motor loads.
+- **Hall Sensor & Throttle Voltage Troubleshooting**: Standard throttle 0.8V – 4.2V linear output verification, 5V reference rail stabilization.
+- **Anti-Theft & Keylock Relays**: Integrating remote alarm locks, electrical ignition cut-offs, and speed limiter selector toggles.
+
+### D. Petrol-to-Electric Hybrid Motorcycle Conversions
+- **Dual-Drive Architecture**: Integrating an electric rear hub motor or swingarm drive alongside the traditional 70cc/100cc/125cc combustion engine.
+- **Throttle Switching & Interlock**: Ensuring safe operational handover so petrol and electric drives do not interfere dangerously during riding.
+- **Battery Compartment Fabrication**: Custom welded structural battery boxes fitted securely within the center frame triangles for optimal center of gravity.
+
+---
+
+## 3. Frequently Asked Questions (FAQ Summary)
+
+1. **How long does a typical repair take?**
+   - Quick electrical troubleshooting, throttle repairs, and brake switch adjustments: 1 to 3 hours (same day).
+   - Controller replacement or MOSFET repairs: 3 to 6 hours.
+   - Complete BLDC motor rewinding or full battery rebuilding: 24 to 48 hours.
+
+2. **Are replacement parts readily available in Dera Ismail Khan?**
+   - Yes. Aziz Electronics keeps common hall sensors, controllers (36V-72V 350W-1500W), throttles, 12V DC-DC converters, fuses, connectors, and brake cut-off switches in stock. Rare or high-capacity custom cells can be ordered within 2-3 business days.
+
+3. **Can petrol motorcycles like Honda 70 or Chinese 70cc bikes be converted to electric?**
+   - Yes. Muhammad Ismail specializes in hybrid conversions that preserve the original petrol engine while adding an electric drive system for economical daily commuting.
+
+4. **Do you provide warranties on repairs?**
+   - Workmanship and repaired components (such as rewound motors or rebuilt battery packs) come with post-service testing and warranty verification.
+
+5. **Where is Aziz Electronics located?**
+   - Located in Saddar Bazaar, Saddar Market, Dera Ismail Khan. Customers can call or WhatsApp 03483440284 for exact directions or landmark guidance.
