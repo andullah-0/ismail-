@@ -27,15 +27,12 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative w-11 h-11 shrink-0 group-hover:scale-105 transition-transform">
-              <div className="w-11 h-11 rounded-2xl overflow-hidden ring-2 ring-sky-500 shadow-md shadow-sky-500/20">
+              <div className="w-11 h-11 rounded-2xl overflow-hidden ring-2 ring-sky-500 shadow-md shadow-sky-500/20 bg-white p-0.5 flex items-center justify-center">
                 <img
-                  src="/assets/aistudio/ismail_b3d8f62b.png"
-                  alt="Aziz Electronics - Muhammad Ismail"
-                  className="w-full h-full object-cover object-top"
+                  src="/assets/aistudio/image_f05df96b.png"
+                  alt="Aziz Electronics Logo"
+                  className="w-full h-full object-contain"
                 />
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-sky-600 text-white flex items-center justify-center ring-2 ring-white shadow-xs">
-                <Wrench className="w-2.5 h-2.5" />
               </div>
             </div>
             <div className="flex flex-col">

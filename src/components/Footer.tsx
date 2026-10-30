@@ -25,15 +25,12 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <Link to="/" className="flex items-center gap-3 group">
               <div className="relative w-10 h-10 shrink-0">
-                <div className="w-10 h-10 rounded-xl overflow-hidden ring-2 ring-sky-500/80 shadow-md">
+                <div className="w-10 h-10 rounded-xl overflow-hidden ring-2 ring-sky-500/80 shadow-md bg-white p-0.5 flex items-center justify-center">
                   <img
-                    src="/assets/aistudio/ismail_b3d8f62b.png"
-                    alt="Aziz Electronics - Muhammad Ismail"
-                    className="w-full h-full object-cover object-top"
+                    src="/assets/aistudio/image_f05df96b.png"
+                    alt="Aziz Electronics Logo"
+                    className="w-full h-full object-contain"
                   />
-                </div>
-                <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-sky-600 text-white flex items-center justify-center ring-1 ring-slate-900">
-                  <Wrench className="w-2 h-2" />
                 </div>
               </div>
               <div>
