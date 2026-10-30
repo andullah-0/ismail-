@@ -21,7 +21,9 @@ import {
   VolumeX,
   ExternalLink,
 } from 'lucide-react';
-import { HeroBikeScene } from '../components/HeroBikeScene';
+const HeroBikeScene = React.lazy(() =>
+  import('../components/HeroBikeScene').then((m) => ({ default: m.HeroBikeScene }))
+);
 import logoImg from '../assets/logo.png';
 
 export const HomePage: React.FC = () => {
@@ -318,11 +320,12 @@ export const HomePage: React.FC = () => {
                       <video
                         ref={videoRef}
                         src="/videos/repair_workshop.mp4"
-                        poster="/assets/aistudio/ismail_b3d8f62b.png"
+                        poster="/assets/aistudio/ismail.webp"
                         autoPlay
                         loop
                         muted={isMuted}
                         playsInline
+                        preload="metadata"
                         controls
                         onPlay={() => setIsPlaying(true)}
                         onPause={() => setIsPlaying(false)}
@@ -396,8 +399,17 @@ export const HomePage: React.FC = () => {
                     </div>
                   </div>
                 ) : activeHeroView === '3d' ? (
-                  <div className="relative">
-                    <HeroBikeScene />
+                  <div className="relative min-h-[380px] sm:min-h-[460px]">
+                    <React.Suspense
+                      fallback={
+                        <div className="w-full aspect-video min-h-[380px] sm:min-h-[460px] rounded-3xl bg-slate-950 border border-slate-800 flex flex-col items-center justify-center text-slate-400 gap-3 shadow-2xl">
+                          <div className="w-8 h-8 border-3 border-sky-400/30 border-t-sky-400 rounded-full animate-spin" />
+                          <span className="text-xs font-semibold text-sky-400 tracking-wider uppercase">Loading 3D Motorbike...</span>
+                        </div>
+                      }
+                    >
+                      <HeroBikeScene />
+                    </React.Suspense>
 
                     {/* Floating Mechanic Badge Card on 3D View */}
                     <div className="absolute -bottom-5 left-4 sm:left-6 z-20 flex items-center gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl max-w-[280px] sm:max-w-xs transition-all hover:scale-105">
@@ -427,8 +439,13 @@ export const HomePage: React.FC = () => {
                   <div className="relative w-full h-[480px] lg:h-[580px] rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 shadow-2xl overflow-hidden flex flex-col justify-end p-6 sm:p-8 text-white group">
                     {/* Background Full Photo */}
                     <img
-                      src="/assets/aistudio/ismail_b3d8f62b.png"
+                      src="/assets/aistudio/ismail.webp"
                       alt="Muhammad Ismail - Electric Bike Mechanic"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        e.currentTarget.src = '/assets/aistudio/ismail_b3d8f62b.png';
+                      }}
                       className="absolute inset-0 w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-700"
                     />
 
@@ -520,8 +537,13 @@ export const HomePage: React.FC = () => {
                 <div className="relative w-11 h-11 mb-3.5 group-hover:scale-110 transition-transform shrink-0">
                   <div className="w-11 h-11 rounded-2xl overflow-hidden ring-2 ring-sky-500 shadow-md">
                     <img
-                      src="/assets/aistudio/ismail_b3d8f62b.png"
+                      src="/assets/aistudio/ismail_thumb.webp"
                       alt="Muhammad Ismail"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        e.currentTarget.src = '/assets/aistudio/ismail_b3d8f62b.png';
+                      }}
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
@@ -554,8 +576,13 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full overflow-hidden ring-1 ring-white shadow-xs">
                     <img
-                      src="/assets/aistudio/ismail_b3d8f62b.png"
+                      src="/assets/aistudio/ismail_thumb.webp"
                       alt="Muhammad Ismail"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        e.currentTarget.src = '/assets/aistudio/ismail_b3d8f62b.png';
+                      }}
                       className="w-full h-full object-cover object-top"
                     />
                   </div>

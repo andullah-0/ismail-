@@ -12,22 +12,39 @@ import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 
 import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { ExperiencePage } from './pages/ExperiencePage';
-import { LocationPage } from './pages/LocationPage';
-import { FAQPage } from './pages/FAQPage';
-import { ContactPage } from './pages/ContactPage';
+const AboutPage = React.lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ServicesPage = React.lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
+const ExperiencePage = React.lazy(() => import('./pages/ExperiencePage').then(m => ({ default: m.ExperiencePage })));
+const LocationPage = React.lazy(() => import('./pages/LocationPage').then(m => ({ default: m.LocationPage })));
+const FAQPage = React.lazy(() => import('./pages/FAQPage').then(m => ({ default: m.FAQPage })));
+const ContactPage = React.lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
+
+// Ultra-fast lightweight loading skeleton
+const PageLoadingFallback = () => (
+  <div className="min-h-[50vh] flex flex-col items-center justify-center py-20 px-4 animate-pulse">
+    <div className="w-10 h-10 border-3 border-sky-200 border-t-sky-600 rounded-full animate-spin mb-3" />
+    <span className="text-xs font-bold text-sky-700 uppercase tracking-widest">
+      Aziz Electronics
+    </span>
+  </div>
+);
 
 export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Monitor scroll for back-to-top button
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setShowScrollTop(window.scrollY > 400);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -38,18 +55,20 @@ export default function App() {
         {/* Sticky Header Navigation */}
         <Navbar />
 
-        {/* Multi-Page Routes */}
+        {/* Multi-Page Routes with Fast Lazy Loading */}
         <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/experience" element={<ExperiencePage />} />
-            <Route path="/location" element={<LocationPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          <React.Suspense fallback={<PageLoadingFallback />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/experience" element={<ExperiencePage />} />
+              <Route path="/location" element={<LocationPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </React.Suspense>
         </main>
 
         {/* Footer */}
