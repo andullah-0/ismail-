@@ -7,6 +7,7 @@ import {
   X,
   Phone,
 } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,9 +30,17 @@ export const Navbar: React.FC = () => {
             <div className="relative w-11 h-11 shrink-0 group-hover:scale-105 transition-transform">
               <div className="w-11 h-11 rounded-2xl overflow-hidden ring-2 ring-sky-500 shadow-md shadow-sky-500/20 bg-white p-0.5 flex items-center justify-center">
                 <img
-                  src="/assets/aistudio/image_f05df96b.png"
+                  src={logoImg}
                   alt="Aziz Electronics Logo"
                   className="w-full h-full object-contain"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src.indexOf('logo.png') === -1) {
+                      target.src = '/logo.png';
+                    } else if (target.src.indexOf('image_f05df96b') === -1) {
+                      target.src = '/assets/aistudio/image_f05df96b.png';
+                    }
+                  }}
                 />
               </div>
             </div>

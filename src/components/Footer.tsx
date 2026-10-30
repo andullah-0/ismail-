@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Wrench, Phone, MessageCircle, MapPin, ArrowUp } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -27,9 +28,17 @@ export const Footer: React.FC = () => {
               <div className="relative w-10 h-10 shrink-0">
                 <div className="w-10 h-10 rounded-xl overflow-hidden ring-2 ring-sky-500/80 shadow-md bg-white p-0.5 flex items-center justify-center">
                   <img
-                    src="/assets/aistudio/image_f05df96b.png"
+                    src={logoImg}
                     alt="Aziz Electronics Logo"
                     className="w-full h-full object-contain"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (target.src.indexOf('logo.png') === -1) {
+                        target.src = '/logo.png';
+                      } else if (target.src.indexOf('image_f05df96b') === -1) {
+                        target.src = '/assets/aistudio/image_f05df96b.png';
+                      }
+                    }}
                   />
                 </div>
               </div>

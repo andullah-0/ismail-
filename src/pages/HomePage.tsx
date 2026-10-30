@@ -22,6 +22,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { HeroBikeScene } from '../components/HeroBikeScene';
+import logoImg from '../assets/logo.png';
 
 export const HomePage: React.FC = () => {
   const [activeHeroView, setActiveHeroView] = useState<'video' | '3d' | 'photo'>('video');
@@ -59,23 +60,48 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column: Core Value Proposition & Headings */}
             <div className="lg:col-span-6 flex flex-col space-y-6 text-left">
-              {/* Profile Pill featuring Muhammad Ismail's portrait */}
-              <div className="inline-flex items-center gap-3 p-1.5 pr-4 rounded-full bg-white border border-slate-200/90 shadow-xs w-fit">
-                <img
-                  src="/assets/aistudio/ismail_b3d8f62b.png"
-                  alt="Muhammad Ismail - Electric Bike Mechanic"
-                  className="w-10 h-10 rounded-full object-cover ring-2 ring-sky-500 shadow-xs shrink-0"
-                />
-                <div className="flex flex-col text-left">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-xs sm:text-sm font-extrabold text-slate-900">
-                      Muhammad Ismail
-                    </span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              {/* Brand Logo & Profile Pills */}
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Official Aziz Electronics Brand Logo Badge */}
+                <div className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-white border border-slate-200/90 shadow-xs">
+                  <div className="w-10 h-10 rounded-full bg-white ring-2 ring-sky-500 overflow-hidden p-0.5 flex items-center justify-center shadow-xs shrink-0">
+                    <img
+                      src={logoImg}
+                      alt="Aziz Electronics Logo"
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.currentTarget.src = '/logo.png';
+                      }}
+                    />
                   </div>
-                  <span className="text-[11px] text-sky-600 font-bold uppercase tracking-wider">
-                    6+ Years Field Experience
-                  </span>
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs sm:text-sm font-extrabold text-slate-900">
+                      Aziz Electronics
+                    </span>
+                    <span className="text-[11px] text-sky-600 font-bold uppercase tracking-wider">
+                      Official E-Bike Workshop
+                    </span>
+                  </div>
+                </div>
+
+                {/* Profile Pill featuring Muhammad Ismail's portrait */}
+                <div className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-white border border-slate-200/90 shadow-xs">
+                  <img
+                    src="/assets/aistudio/ismail_b3d8f62b.png"
+                    alt="Muhammad Ismail - Electric Bike Mechanic"
+                    className="w-10 h-10 rounded-full object-cover ring-2 ring-sky-500 shadow-xs shrink-0"
+                  />
+                  <div className="flex flex-col text-left">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs sm:text-sm font-extrabold text-slate-900">
+                        Muhammad Ismail
+                      </span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    </div>
+                    <span className="text-[11px] text-sky-600 font-bold uppercase tracking-wider">
+                      6+ Years Field Experience
+                    </span>
+                  </div>
                 </div>
               </div>
 
