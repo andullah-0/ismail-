@@ -1,6 +1,7 @@
 {
   "name": "Aziz Electronics - Electric Bike Mechanic",
   "short_name": "Aziz Electronics",
+  "description": "Professional electric bike repair, BLDC motor rewinding, lithium battery diagnostics, and hybrid motorcycle conversions in Dera Ismail Khan, Pakistan.",
   "icons": [
     {
       "src": "/favicon-16x16.png",
@@ -15,16 +16,20 @@
     {
       "src": "/logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "/logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": "/",
+  "scope": "/",
   "background_color": "#ffffff",
   "theme_color": "#0284c7",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait-primary"
 }
