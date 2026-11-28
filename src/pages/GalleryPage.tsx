@@ -13,7 +13,6 @@ import {
   Phone,
   ExternalLink,
   Video,
-  UserCheck,
   Wrench,
 } from 'lucide-react';
 
@@ -47,7 +46,6 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Original shop footage from Aziz Electronics demonstrating hybrid fuel-to-electric motorcycle conversion, BLDC hub motor road testing, and controller wiring calibration by Muhammad Ismail.',
     mediaType: 'video',
     src: '/videos/repair_workshop.mp4',
-    poster: '/assets/aistudio/ismail.webp',
     alt: 'Aziz Electronics Workshop Repair Video by Muhammad Ismail',
     externalUrl: 'https://www.facebook.com/share/p/19TcxmwsjY/',
   },
@@ -74,10 +72,8 @@ export const GalleryPage: React.FC = () => {
   const [isMuted, setIsMuted] = useState<boolean>(true);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
 
-  const filteredItems =
-    activeFilter === 'all'
-      ? GALLERY_ITEMS
-      : GALLERY_ITEMS.filter((item) => item.category === activeFilter);
+  const showVideo = activeFilter === 'all' || activeFilter === 'video';
+  const showPortrait = activeFilter === 'all' || activeFilter === 'mechanic';
 
   const togglePlay = () => {
     const video = heroVideoRef.current;
@@ -192,7 +188,7 @@ export const GalleryPage: React.FC = () => {
       {/* Featured Split Showcase: Workshop Video + Muhammad Ismail Portrait */}
       <section className="py-12 border-b border-slate-200/70 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div>
               <h2 className="text-xl sm:text-2xl font-extrabold text-slate-950 tracking-tight">
                 Featured Workshop Highlights
@@ -201,11 +197,47 @@ export const GalleryPage: React.FC = () => {
                 Live shop video demonstration alongside lead mechanic Muhammad Ismail
               </p>
             </div>
+
+            {/* Interactive Segmented Filter Control */}
+            <div
+              className="flex flex-wrap items-center gap-1 p-1 bg-white rounded-xl border border-slate-200/80 self-start md:self-auto"
+              role="tablist"
+              aria-label="Filter gallery items"
+            >
+              {filterButtons.map((btn) => (
+                <button
+                  key={btn.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeFilter === btn.id}
+                  onClick={() => setActiveFilter(btn.id)}
+                  className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                    activeFilter === btn.id
+                      ? 'bg-slate-900 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  {btn.label}{' '}
+                  <span
+                    className={`tabular-nums ${
+                      activeFilter === btn.id ? 'text-slate-300' : 'text-slate-400'
+                    }`}
+                  >
+                    ({btn.count})
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            {/* Featured Workshop Video (7 Columns) */}
-            <div className="lg:col-span-7 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col justify-between shadow-lg">
+            {/* Featured Workshop Video */}
+            {showVideo && (
+              <div
+                className={`${
+                  showPortrait ? 'lg:col-span-7' : 'lg:col-span-12'
+                } rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col justify-between shadow-lg`}
+              >
               <div className="flex items-center justify-between px-5 py-3.5 bg-slate-900 border-b border-slate-800 text-white">
                 <div className="flex items-center gap-2.5 min-w-0">
                   <Video className="w-4 h-4 text-sky-400 shrink-0" />
@@ -287,10 +319,18 @@ export const GalleryPage: React.FC = () => {
                   </a>
                 )}
               </div>
-            </div>
+              </div>
+            )}
 
-            {/* Featured Muhammad Ismail Portrait (5 Columns) */}
-            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 min-h-[420px] lg:min-h-0 flex flex-col justify-end group shadow-lg">
+            {/* Featured Muhammad Ismail Portrait */}
+            {showPortrait && (
+              <div
+                className={`${
+                  showVideo
+                    ? 'lg:col-span-5 min-h-[420px] lg:min-h-0'
+                    : 'lg:col-span-6 lg:col-start-4 min-h-[500px]'
+                } relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 flex flex-col justify-end group shadow-lg`}
+              >
               <img
                 src={featuredPortrait.src}
                 alt={featuredPortrait.alt}
@@ -344,155 +384,8 @@ export const GalleryPage: React.FC = () => {
                   </Link>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Filterable Complete Media Grid */}
-      <section className="py-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-            <div>
-              <h2 className="text-2xl font-extrabold text-slate-950 tracking-tight">
-                Complete Workshop Collection
-              </h2>
-              <p className="text-sm text-slate-600 mt-1">
-                Click any photo or video below to inspect in high-resolution fullscreen view.
-              </p>
-            </div>
-
-            {/* Interactive Segmented Filter Control */}
-            <div
-              className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 rounded-xl border border-slate-200/80"
-              role="tablist"
-              aria-label="Filter gallery items"
-            >
-              {filterButtons.map((btn) => (
-                <button
-                  key={btn.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeFilter === btn.id}
-                  onClick={() => setActiveFilter(btn.id)}
-                  className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
-                    activeFilter === btn.id
-                      ? 'bg-white text-slate-950 shadow-xs'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  {btn.label} <span className="text-slate-400 tabular-nums">({btn.count})</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredItems.map((item) => (
-              <article
-                key={item.id}
-                className="group rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden flex flex-col justify-between transition-all duration-200 hover:border-sky-300 hover:shadow-md"
-              >
-                <div>
-                  {/* Media Thumbnail */}
-                  <div className="relative aspect-[4/3] bg-slate-900 overflow-hidden">
-                    {item.mediaType === 'video' ? (
-                      <>
-                        <img
-                          src={item.poster || '/assets/aistudio/ismail.webp'}
-                          alt={item.alt}
-                          loading="lazy"
-                          decoding="async"
-                          referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105 opacity-85"
-                        />
-                        <div className="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
-                          <button
-                            type="button"
-                            onClick={() => setLightboxItem(item)}
-                            className="w-14 h-14 rounded-full bg-white/95 hover:bg-white text-slate-950 flex items-center justify-center shadow-lg transition-transform group-hover:scale-105 cursor-pointer"
-                            aria-label={`Play ${item.title}`}
-                          >
-                            <Play className="w-6 h-6 fill-slate-950 ml-0.5" />
-                          </button>
-                        </div>
-                      </>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => setLightboxItem(item)}
-                        className="w-full h-full block text-left cursor-pointer"
-                        aria-label={`Inspect ${item.title}`}
-                      >
-                        <img
-                          src={item.src}
-                          alt={item.alt}
-                          loading="lazy"
-                          decoding="async"
-                          referrerPolicy="no-referrer"
-                          onError={(e) => {
-                            if (item.fallbackSrc) {
-                              e.currentTarget.src = item.fallbackSrc;
-                            }
-                          }}
-                          className={`w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 ${
-                            item.category === 'mechanic' ? 'object-top' : 'object-center'
-                          }`}
-                        />
-                      </button>
-                    )}
-
-                    <button
-                      type="button"
-                      onClick={() => setLightboxItem(item)}
-                      className="absolute bottom-3 right-3 p-2 rounded-lg bg-slate-950/75 hover:bg-slate-950 text-white border border-white/15 opacity-90 group-hover:opacity-100 transition-opacity cursor-pointer"
-                      aria-label={`Open ${item.title} in fullscreen`}
-                    >
-                      <Maximize2 className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                  {/* Card Details (Zero-Pill Clean Metadata) */}
-                  <div className="p-5 space-y-2.5">
-                    <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                      <span className="font-semibold text-sky-700">{item.categoryLabel}</span>
-                      <span aria-hidden="true">·</span>
-                      <span>{item.dateLabel}</span>
-                      <span aria-hidden="true">·</span>
-                      <span>{item.specLabel}</span>
-                    </div>
-
-                    <h3 className="text-lg font-bold text-slate-950 leading-snug">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="px-5 py-3.5 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold">
-                  <button
-                    type="button"
-                    onClick={() => setLightboxItem(item)}
-                    className="text-sky-600 hover:text-sky-700 transition-colors inline-flex items-center gap-1 cursor-pointer"
-                  >
-                    <span>{item.mediaType === 'video' ? 'Watch Video' : 'Inspect Full Photo'}</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
-
-                  <span className="text-slate-400 inline-flex items-center gap-1">
-                    {item.mediaType === 'video' ? (
-                      <Video className="w-3.5 h-3.5" />
-                    ) : (
-                      <UserCheck className="w-3.5 h-3.5" />
-                    )}
-                    <span>{item.mediaType === 'video' ? 'MP4' : 'HD'}</span>
-                  </span>
-                </div>
-              </article>
-            ))}
+              </div>
+            )}
           </div>
         </div>
       </section>

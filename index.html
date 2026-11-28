@@ -11,6 +11,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0284c7" />
+    <meta name="application-name" content="Aziz Electronics" />
+    <meta name="apple-mobile-web-app-title" content="Aziz Electronics" />
     <meta name="msapplication-TileColor" content="#0284c7" />
     <meta name="msapplication-TileImage" content="/logo192.png" />
     <title>Electric Bike Mechanic in D.I. Khan | Aziz Electronics</title>
@@ -27,7 +29,7 @@
     <meta property="og:description" content="Aziz Electronics by Muhammad Ismail provides professional electric bike repair, maintenance, electrical troubleshooting, and mechanical services in Saddar Bazaar, Saddar Market, Aziz Electronics, Dera Ismail Khan, Pakistan." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/" />
-    <meta property="og:site_name" content="Aziz Electronics - Muhammad Ismail" />
+    <meta property="og:site_name" content="Aziz Electronics" />
     <meta property="og:image" content="https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/og-image.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -44,8 +46,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Schema.org JSON-LD WebSite (Google Search Site Name) -->
+    <script id="website-schema" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Aziz Electronics",
+      "alternateName": [
+        "Aziz Electronics - Electric Bike Mechanic",
+        "Aziz Electronics D.I. Khan"
+      ],
+      "url": "https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/"
+    }
+    </script>
+
     <!-- Schema.org JSON-LD LocalBusiness -->
-    <script type="application/ld+json">
+    <script id="business-schema" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "AutoRepair",
@@ -82,6 +98,31 @@
       ],
       "description": "Professional electric bike repair, BLDC motor rewinding, lithium battery diagnostics, and hybrid motorcycle conversion services with 6+ years of hands-on experience."
     }
+    </script>
+    <script>
+      (function () {
+        if (typeof window === 'undefined' || !/^https?:/.test(window.location.origin)) return;
+        var origin = window.location.origin;
+        var canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', origin + '/');
+        var ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', origin + '/');
+        var ogImg = document.querySelector('meta[property="og:image"]');
+        if (ogImg) ogImg.setAttribute('content', origin + '/og-image.jpg');
+        var twImg = document.querySelector('meta[name="twitter:image"]');
+        if (twImg) twImg.setAttribute('content', origin + '/og-image.jpg');
+        ['website-schema', 'business-schema'].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el || !el.textContent) return;
+          try {
+            var data = JSON.parse(el.textContent);
+            data.url = origin + '/';
+            if (data.image) data.image = origin + '/assets/aistudio/image_f05df96b.png';
+            if (data.logo) data.logo = origin + '/assets/aistudio/image_f05df96b.png';
+            el.textContent = JSON.stringify(data);
+          } catch (e) {}
+        });
+      })();
     </script>
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-sky-500 selection:text-white">
