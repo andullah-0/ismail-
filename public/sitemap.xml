@@ -32,9 +32,15 @@
   </url>
   <url>
     <loc>https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/experience</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/gallery</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/location</loc>
@@ -70,9 +76,15 @@
   </url>
   <url>
     <loc>https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/experience</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/gallery</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/location</loc>

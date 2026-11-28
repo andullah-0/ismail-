@@ -29,6 +29,7 @@
 - [About](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/about): Muhammad Ismail's technical journey, 6+ years of field experience, diagnostic philosophies, and equipment at Aziz Electronics.
 - [Frequently Asked Questions](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/faq): Transparent answers on diagnostic turnaround time (same-day to 48 hours), spare parts sourcing in D.I. Khan, pricing estimates, and battery health warranties.
 - [Workshop Experience & Showcase](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/experience): Portfolio of completed e-bike repairs, motor rewinds, customer feedback, and workshop bench equipment.
+- [Workshop Gallery](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/gallery): Visual showcase featuring the Aziz Electronics workshop repair video and Muhammad Ismail's specialist portrait.
 - [Workshop Location & Map](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/location): Landmark directions to Saddar Market in Dera Ismail Khan, Google Maps integration, and visiting advice.
 - [Contact & Appointments](https://ais-pre-pewp6pv5hvu6nx2h3dw2xm-711450502041.asia-east1.run.app/#/contact): Quick click-to-call and WhatsApp links for immediate troubleshooting inquiries.
 

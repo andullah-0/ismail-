@@ -13,6 +13,7 @@ export const Footer: React.FC = () => {
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Experience & Process', path: '/experience' },
+    { label: 'Workshop Gallery', path: '/gallery' },
     { label: 'Location', path: '/location' },
     { label: 'FAQs', path: '/faq' },
     { label: 'Contact', path: '/contact' },

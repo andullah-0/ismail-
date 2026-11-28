@@ -15,6 +15,7 @@ import { HomePage } from './pages/HomePage';
 const AboutPage = React.lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
 const ServicesPage = React.lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
 const ExperiencePage = React.lazy(() => import('./pages/ExperiencePage').then(m => ({ default: m.ExperiencePage })));
+const GalleryPage = React.lazy(() => import('./pages/GalleryPage').then(m => ({ default: m.GalleryPage })));
 const LocationPage = React.lazy(() => import('./pages/LocationPage').then(m => ({ default: m.LocationPage })));
 const FAQPage = React.lazy(() => import('./pages/FAQPage').then(m => ({ default: m.FAQPage })));
 const ContactPage = React.lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
@@ -63,6 +64,7 @@ export default function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/experience" element={<ExperiencePage />} />
+              <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/location" element={<LocationPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/contact" element={<ContactPage />} />

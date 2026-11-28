@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   MessageCircle,
@@ -8,18 +8,11 @@ import {
   MapPin,
   Phone,
   Wrench,
-  Sparkles,
   ChevronRight,
   Cpu,
   HelpCircle,
   UserCheck,
-  Box,
-  Play,
-  Pause,
-  Video,
-  Volume2,
-  VolumeX,
-  ExternalLink,
+  Camera,
 } from 'lucide-react';
 const HeroBikeScene = React.lazy(() =>
   import('../components/HeroBikeScene').then((m) => ({ default: m.HeroBikeScene }))
@@ -27,27 +20,6 @@ const HeroBikeScene = React.lazy(() =>
 import logoImg from '../assets/logo.png';
 
 export const HomePage: React.FC = () => {
-  const [activeHeroView, setActiveHeroView] = useState<'video' | '3d' | 'photo'>('video');
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const [isMuted, setIsMuted] = useState<boolean>(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !videoRef.current.muted;
-    setIsMuted(videoRef.current.muted);
-  };
 
   return (
     <div className="flex flex-col">
@@ -146,19 +118,14 @@ export const HomePage: React.FC = () => {
                   <ArrowRight className="w-4 h-4 text-slate-500" />
                 </Link>
 
-                {/* Watch Video Button */}
-                <button
-                  type="button"
-                  onClick={() => setActiveHeroView('video')}
-                  className={`inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl font-bold text-sm transition-all shadow-xs ${
-                    activeHeroView === 'video'
-                      ? 'bg-rose-50 text-rose-700 border border-rose-300'
-                      : 'bg-white hover:bg-rose-50 text-slate-800 hover:text-rose-700 border border-slate-200'
-                  }`}
+                {/* Secondary CTA: Workshop Gallery Page */}
+                <Link
+                  to="/gallery"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-white hover:bg-sky-50 text-slate-800 hover:text-sky-700 font-bold text-sm border border-slate-200 shadow-xs transition-all hover:-translate-y-0.5"
                 >
-                  <Play className="w-4 h-4 fill-rose-600 text-rose-600" />
-                  <span>Watch Video</span>
-                </button>
+                  <Camera className="w-4 h-4 text-sky-600" />
+                  <span>Gallery</span>
+                </Link>
 
                 {/* Direct Call Link */}
                 <a
@@ -210,304 +177,44 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Hero Visual Showcase (Workshop Video + 3D Model + Muhammad Ismail Portrait) */}
+            {/* Right Column: Interactive 3D Motorbike Showcase */}
             <div className="lg:col-span-6 relative">
-              {/* Visual Switcher Tabs */}
-              <div className="flex items-center justify-end gap-2 mb-3">
-                <div className="inline-flex p-1 rounded-2xl bg-white/95 border border-slate-200 shadow-xs backdrop-blur-md">
-                  <button
-                    onClick={() => setActiveHeroView('video')}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                      activeHeroView === 'video'
-                        ? 'bg-rose-600 text-white shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                    }`}
-                  >
-                    <Play className="w-3.5 h-3.5 fill-current" />
-                    <span>Workshop Video</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse" />
-                  </button>
-                  <button
-                    onClick={() => setActiveHeroView('3d')}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                      activeHeroView === '3d'
-                        ? 'bg-sky-600 text-white shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                    }`}
-                  >
-                    <Box className="w-3.5 h-3.5" />
-                    <span>3D Motorbike</span>
-                  </button>
-                  <button
-                    onClick={() => setActiveHeroView('photo')}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                      activeHeroView === 'photo'
-                        ? 'bg-sky-600 text-white shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                    }`}
-                  >
-                    <UserCheck className="w-3.5 h-3.5" />
-                    <span>Muhammad Ismail</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Main Visual Display */}
-              <div className="relative">
-                {activeHeroView === 'video' ? (
-                  /* Dedicated Hero Native Video Showcase Card */
-                  <div className="relative w-full rounded-3xl bg-slate-950 border border-slate-800 shadow-2xl overflow-hidden flex flex-col text-white">
-                    {/* Video Header Bar */}
-                    <div className="flex items-center justify-between px-5 py-3.5 bg-slate-900/90 border-b border-slate-800/80 backdrop-blur-md">
-                      <div className="flex items-center gap-2.5">
-                        <span className="relative flex h-2.5 w-2.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                        </span>
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide">
-                              Hybrid Motorcycle Conversion &amp; E-Bike Repair
-                            </h4>
-                            <span className="hidden md:inline-flex text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30">
-                              4:13 Video
-                            </span>
-                          </div>
-                          <p className="text-[10px] text-slate-400">
-                            Muhammad Ismail • Aziz Electronics, D.I. Khan
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Header Controls: Mute/Unmute & Play/Pause */}
-                      <div className="flex items-center gap-1.5">
-                        <button
-                          type="button"
-                          onClick={togglePlay}
-                          className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors border border-slate-700"
-                          title={isPlaying ? 'Pause Video' : 'Play Video'}
-                        >
-                          {isPlaying ? (
-                            <>
-                              <Pause className="w-3.5 h-3.5 fill-current" />
-                              <span className="hidden xs:inline">Pause</span>
-                            </>
-                          ) : (
-                            <>
-                              <Play className="w-3.5 h-3.5 fill-current text-emerald-400" />
-                              <span className="hidden xs:inline text-emerald-400">Play</span>
-                            </>
-                          )}
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={toggleMute}
-                          className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors border border-slate-700"
-                          title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
-                        >
-                          {isMuted ? (
-                            <VolumeX className="w-4 h-4 text-slate-400" />
-                          ) : (
-                            <Volume2 className="w-4 h-4 text-emerald-400" />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Actual Native HTML5 Video Element Container */}
-                    <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
-                      <video
-                        ref={videoRef}
-                        src="/videos/repair_workshop.mp4"
-                        poster="/assets/aistudio/ismail.webp"
-                        autoPlay
-                        loop
-                        muted={isMuted}
-                        playsInline
-                        preload="metadata"
-                        controls
-                        onPlay={() => setIsPlaying(true)}
-                        onPause={() => setIsPlaying(false)}
-                        className="w-full h-full object-cover sm:object-contain bg-black"
-                      />
-                    </div>
-
-                    {/* Video Description & Action Bar */}
-                    <div className="p-4 sm:p-5 bg-gradient-to-t from-slate-950 via-slate-900 to-slate-900/95 border-t border-slate-800/80 space-y-3">
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="flex items-center gap-3">
-                          <img
-                            src="/assets/aistudio/ismail_b3d8f62b.png"
-                            alt="Muhammad Ismail"
-                            className="w-10 h-10 rounded-xl object-cover ring-2 ring-emerald-500/80 shrink-0"
-                          />
-                          <div>
-                            <div className="flex items-center gap-1.5">
-                              <h5 className="text-xs sm:text-sm font-bold text-white">
-                                Muhammad Ismail
-                              </h5>
-                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
-                                Verified Master Craftsman
-                              </span>
-                            </div>
-                            <p className="text-[11px] text-slate-400">
-                              Aziz Electronics • Saddar Bazaar, Dera Ismail Khan
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={() => setActiveHeroView('3d')}
-                            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors border border-slate-700"
-                          >
-                            <Box className="w-3.5 h-3.5" />
-                            <span>3D Motorbike</span>
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* Video Context Note */}
-                      <p className="text-xs text-slate-300 leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/70">
-                        <span className="font-semibold text-sky-400">Featured Video: </span>
-                        Watch Muhammad Ismail demonstrate the hybrid electric motorcycle conversion process, reducing fuel costs and enhancing motorbike performance.
-                      </p>
-
-                      <div className="flex items-center gap-2 pt-1">
-                        <a
-                          href="https://wa.me/923483440284?text=Hello%20Muhammad%20Ismail%2C%20I%20watched%20your%20hybrid%20motorcycle%20video%20and%20need%20electric%20bike%20service."
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 py-2.5 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-md"
-                        >
-                          <MessageCircle className="w-4 h-4 fill-white/20" />
-                          <span>Contact Muhammad Ismail on WhatsApp</span>
-                        </a>
-
-                        <a
-                          href="https://www.facebook.com/share/p/19TcxmwsjY/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-1.5 transition-colors border border-slate-700 shrink-0"
-                          title="Original Facebook Post"
-                        >
-                          <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-                          <span>Facebook Post</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ) : activeHeroView === '3d' ? (
-                  <div className="relative min-h-[380px] sm:min-h-[460px]">
-                    <React.Suspense
-                      fallback={
-                        <div className="w-full aspect-video min-h-[380px] sm:min-h-[460px] rounded-3xl bg-slate-950 border border-slate-800 flex flex-col items-center justify-center text-slate-400 gap-3 shadow-2xl">
-                          <div className="w-8 h-8 border-3 border-sky-400/30 border-t-sky-400 rounded-full animate-spin" />
-                          <span className="text-xs font-semibold text-sky-400 tracking-wider uppercase">Loading 3D Motorbike...</span>
-                        </div>
-                      }
-                    >
-                      <HeroBikeScene />
-                    </React.Suspense>
-
-                    {/* Floating Mechanic Badge Card on 3D View */}
-                    <div className="absolute -bottom-5 left-4 sm:left-6 z-20 flex items-center gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl max-w-[280px] sm:max-w-xs transition-all hover:scale-105">
-                      <img
-                        src="/assets/aistudio/ismail_b3d8f62b.png"
-                        alt="Muhammad Ismail"
-                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover ring-2 ring-sky-500 shadow-sm shrink-0"
-                      />
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
-                          <h4 className="text-xs sm:text-sm font-bold text-slate-900 truncate">
-                            Muhammad Ismail
-                          </h4>
-                          <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                        </div>
-                        <p className="text-[11px] font-semibold text-sky-600 truncate">
-                          Master E-Bike Mechanic
-                        </p>
-                        <p className="text-[10px] text-slate-500 truncate">
-                          Aziz Electronics • D.I. Khan
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  /* Dedicated Full-Size Portrait Card of Muhammad Ismail */
-                  <div className="relative w-full h-[480px] lg:h-[580px] rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 shadow-2xl overflow-hidden flex flex-col justify-end p-6 sm:p-8 text-white group">
-                    {/* Background Full Photo */}
-                    <img
-                      src="/assets/aistudio/ismail.webp"
-                      alt="Muhammad Ismail - Electric Bike Mechanic"
-                      loading="lazy"
-                      decoding="async"
-                      onError={(e) => {
-                        e.currentTarget.src = '/assets/aistudio/ismail_b3d8f62b.png';
-                      }}
-                      className="absolute inset-0 w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-700"
-                    />
-
-                    {/* Gradient Overlay for Readable Typography */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-
-                    {/* Top Status Tag */}
-                    <div className="absolute top-5 left-5 right-5 flex items-center justify-between z-10">
-                      <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-slate-900 text-xs font-bold shadow-md">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                        <span>Muhammad Ismail • On Duty</span>
-                      </div>
-                      <span className="px-3 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold border border-white/20">
-                        Aziz Electronics
+              <div className="relative min-h-[380px] sm:min-h-[460px]">
+                <React.Suspense
+                  fallback={
+                    <div className="w-full aspect-video min-h-[380px] sm:min-h-[460px] rounded-3xl bg-slate-950 border border-slate-800 flex flex-col items-center justify-center text-slate-400 gap-3 shadow-2xl">
+                      <div className="w-8 h-8 border-3 border-sky-400/30 border-t-sky-400 rounded-full animate-spin" />
+                      <span className="text-xs font-semibold text-sky-400 tracking-wider uppercase">
+                        Loading 3D Motorbike...
                       </span>
                     </div>
+                  }
+                >
+                  <HeroBikeScene />
+                </React.Suspense>
 
-                    {/* Bottom Info Overlay */}
-                    <div className="relative z-10 space-y-3">
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                          Muhammad Ismail
-                        </h3>
-                        <p className="text-xs sm:text-sm font-semibold text-sky-400">
-                          Electric Bike Specialist &amp; Workshop Technician
-                        </p>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2 text-xs">
-                        <span className="px-3 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-slate-200">
-                          6+ Years Experience
-                        </span>
-                        <span className="px-3 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-slate-200">
-                          Saddar Bazaar, D.I. Khan
-                        </span>
-                        <span className="px-3 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-slate-200">
-                          BLDC &amp; Battery Diagnostics
-                        </span>
-                      </div>
-
-                      <div className="pt-2 flex items-center gap-3">
-                        <a
-                          href="https://wa.me/923483440284?text=Hello%20Muhammad%20Ismail%2C%20I%20saw%20your%20portfolio%20and%20need%20electric%20bike%20repair."
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-lg"
-                        >
-                          <MessageCircle className="w-4 h-4 fill-white/20" />
-                          <span>Direct WhatsApp</span>
-                        </a>
-
-                        <button
-                          onClick={() => setActiveHeroView('video')}
-                          className="py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-500 backdrop-blur-md text-white font-bold text-xs flex items-center gap-1.5 transition-colors shadow-md"
-                        >
-                          <Play className="w-4 h-4 fill-current" />
-                          <span>Watch Video</span>
-                        </button>
-                      </div>
+                {/* Floating Mechanic Badge Card on 3D View */}
+                <div className="absolute -bottom-5 left-4 sm:left-6 z-20 flex items-center gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl max-w-[280px] sm:max-w-xs transition-all hover:scale-105">
+                  <img
+                    src="/assets/aistudio/ismail_b3d8f62b.png"
+                    alt="Muhammad Ismail"
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover ring-2 ring-sky-500 shadow-sm shrink-0"
+                  />
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 truncate">
+                        Muhammad Ismail
+                      </h4>
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
                     </div>
+                    <p className="text-[11px] font-semibold text-sky-600 truncate">
+                      Master E-Bike Mechanic
+                    </p>
+                    <p className="text-[10px] text-slate-500 truncate">
+                      Aziz Electronics • D.I. Khan
+                    </p>
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
@@ -527,7 +234,7 @@ export const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {/* About Card */}
             <Link
               to="/about"
@@ -662,6 +369,28 @@ export const HomePage: React.FC = () => {
               </div>
               <div className="mt-4 pt-2.5 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold text-sky-600">
                 <span>Read FAQs</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            {/* Workshop Gallery Card */}
+            <Link
+              to="/gallery"
+              className="group p-5 rounded-3xl bg-slate-50 border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-11 h-11 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center mb-3.5 group-hover:scale-110 transition-transform">
+                  <Camera className="w-5 h-5" />
+                </div>
+                <h4 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors mb-1.5">
+                  Workshop Gallery
+                </h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Workshop repair video &amp; Muhammad Ismail official showcase.
+                </p>
+              </div>
+              <div className="mt-4 pt-2.5 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold text-sky-600">
+                <span>View Gallery</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
